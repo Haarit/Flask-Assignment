@@ -40,4 +40,4 @@ Roll no: 23110077
 
 # Images of Website
 ## Homepage
-Website Images/Home_Page.png
+![ALT TEXT](./Website Images/Home_Page.png)
