@@ -41,3 +41,19 @@ Roll no: 23110077
 # Images of Website
 ## Homepage
 ![ALT TEXT](./Website_Images/Home_Page.png)
+
+## Q1
+![ALT TEXT](./Website_Images/Q1/1.png)
+
+
+## Q2
+
+## Q3
+
+## Q4
+
+## Q5
+
+## Q6
+
+## Exploring
