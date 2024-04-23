@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subpages.css') }}">
+</head>
+<body>
+    <form action="/purchase_query" method="POST">
+        <div>
+        <label for="options">Choose the column :</label>
+        <select id="options" name="options">
+            <option>Reference No (URN)</option>
+            <option>Journal Date</option>
+            <option>Date of Purchase</option>
+            <option>Date of Expiry</option>
+            <option>Name of Purchaser</option>
+            <option>Prefix</option>
+            <option selected>Bond Number</option>
+            <option>Denominations</option>
+            <option>Issue Branch Code</option>
+            <option>Issue Teller</option>
+        </select>   
+        </div>
+        <br><br>
+        <div>
+        <label for="box">Enter the query :</label>
+        <input type="text"  name="box">
+        </div>
+        <br>
+        <br>
+        <button>Submit</button>
+        <br>
+    </form>
+
+    
+        {% if a_1_data%}
+        <table class="table table-striped table-dark">
+            <tr> 
+                <th>Reference Number (URN)</th>
+                <th>Journal Date</th>
+                <th>Date of Purchase</th>
+                <th>Date of Expiry</th>
+                <th>Name of Purchaser</th>
+                <th>Prefix</th>
+                <th>Bond Number</th>
+                <th>Denominations</th>
+                <th>Issue Branch Code</th>
+                <th>Issue Teller</th>
+                <th>Status</th>
+            </tr>
+        <tbody class="table-group-divider">
+        {% for items in a_1_data %}
+        <tr>
+            {% for item in items[1:] %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subpages.css') }}">
+</head>
+<body>
+    <form action="/exploring1" method="POST">
+        <select name="names" id="names">
+        {% if data%}
+            {% for items in data %}
+                {% for item in items %}
+                    <option>{{item}}</option>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        </select>
+        <br>
+        <br>
+        <button>submit</button>
+    </form>
+
+    {%if labels%}
+    <h2>Transaction Amounts Over Time</h2>
+    <div class="canvas_container">
+    <canvas id="LineChart"></canvas>
+    <button id="save-btn">Save Chart</button>
+    </div>
+    <script>
+        var ctx = document.getElementById('LineChart').getContext('2d');
+        var labels = JSON.parse('{{ labels | tojson | safe | replace("\'", "\\\'") }}')
+        var data_graph = JSON.parse('{{ data_graph | tojson | safe | replace("\'", "\\\'") }}')
+        var myLineChart = new Chart(ctx, {
+            type: 'line', 
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Total Amount Encashed',
+                    data: data_graph,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', 
+                    borderColor: 'rgba(255, 99, 132, 1)', 
+                    borderWidth: 1,
+                    fill: true
+                }]
+            },
+            options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#e0e0e0' // Light grey color for y-axis ticks
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.2)' // Slightly visible grid lines
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#e0e0e0' // Light grey color for x-axis ticks
+                },
+                grid: {
+                    color: 'rgba(255,255,255,0.1)' // Slightly visible grid lines
+                }
+            }
+        }
+    }
+        
+});
+    </script>
+    <script>
+        document.getElementById('save-btn').addEventListener('click', function() {
+            var url = document.getElementById('PieChart').toDataURL('image/png');
+            var link = document.createElement('a');
+            link.download = 'chart.png';
+            link.href = url;
+            link.click();
+        });
+    </script>
+    {%endif%}
+
+
+   
+</body>
+</html>

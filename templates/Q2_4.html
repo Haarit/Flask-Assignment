@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subpages.css') }}">
+</head>
+<body>
+    <form action="/Q2_4" method="post">
+        <select name="names" id="names">
+        {% if data%}
+        {% for items in data %}
+                {% for item in items %}
+                <option>{{item}}</option>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+            </select>
+            <br>
+            <br>
+            <button>submit</button>
+        </form>
+        
+        {%if data_dict%}
+        <h2>Total amount of denominations by all companies in rupees: {{total}}</h2>
+        <div class="canvas_container">
+            <canvas id="PieChart">
+            </canvas>
+            <button id="save-btn">Save Chart</button>
+        </div>
+        <table>
+            <tr>
+                <th>Name of Purchaser</th>
+                <th>Denominations</th>
+            </tr>
+            {%for i,j in data_dict.items()%}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{j}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    {%endif%}
+
+
+    {%if labels%}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('PieChart').getContext('2d');
+        var labels =JSON.parse('{{ labels | tojson | safe | replace("\'", "\\\'") }}');
+        var data_pie  = JSON.parse('{{ data_pie | tojson | safe | replace("\'", "\\\'") }}');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Dataset 1',
+                    data: data_pie ,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('save-btn').addEventListener('click', function() {
+            var url = document.getElementById('PieChart').toDataURL('image/png');
+            var link = document.createElement('a');
+            link.download = 'chart.png';
+            link.href = url;
+            link.click();
+        });
+    </script>
+    {%endif%}
+    
+</body>
+</html>

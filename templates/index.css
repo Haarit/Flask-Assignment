@@ -1,0 +1,44 @@
+/* styles.css */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #fff; /* White text */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #282828; /* Dark gray for cards */
+    border-radius: 10px;
+    width: 250px; /* Fixed width */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.card:hover, .card:focus {
+    transform: scale(1.05); /* Slight scale on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7); /* Increased shadow on hover */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px; /* Larger text for titles */
+    margin-bottom: 10px; /* Space below title */
+}
+
+.card-text {
+    font-size: 14px; /* Smaller text for content */
+    line-height: 1.6;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subpages.css') }}">
+</head>
+<body>
+    <form action="/redemption_query" method="POST">
+        <div>
+            <label for="options">Choose the column :</label>
+        <select name="options" id="options">
+            <option>Date of Encashment</option>
+            <option>Name of Political Party</option>
+            <option>Account no of political Party</option>
+            <option>Prefix</option>
+            <option selected>Bond Number</option>
+            <option>Denominations</option>
+            <option>Pay Branch Code</option>
+            <option>Pay Teller</option>
+            
+        </select>
+        </div>
+        <br><br>
+        <div>
+        <label for="box">Enter Your Query : </label>
+        <input type="text"  name="box">
+        </div>
+        <br><br>
+        <button>Submit</button>
+    </form>
+
+    
+        {% if a_1_data%}
+        <table>
+            <tr> 
+                <th>Date of Encashment</th>
+                <th>Name of Political Party</th>
+                <th>Account no of political Party</th>
+                <th>Prefix</th>
+                <th>Bond Number</th>
+                <th>Denominations</th>
+                <th>Pay Branch Code</th>
+                <th>Pay Teller</th>
+            </tr>
+        {% for items in a_1_data %}
+        <tr>
+            {% for item in items[1:] %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endif %}
+
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/subpages.css') }}">
+</head>
+<body>
+    <h1>Total amount of donations to all parties</h1>
+
+    <div class="canvas_container">
+        <canvas id="PieChart" style="max-width: 800px; max-height: 800px;"></canvas>
+        <button id="save-btn">Save Chart</button>
+    </div>
+
+    {%if labels%}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('PieChart').getContext('2d');
+        var labels =JSON.parse('{{ labels | tojson | safe | replace("\'", "\\\'") }}');;
+        var data_pie  = JSON.parse('{{ data_pie | tojson | safe | replace("\'", "\\\'") }}');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Dataset 1',
+                    data: data_pie ,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        });
+        </script>
+
+
+<script>
+    document.getElementById('save-btn').addEventListener('click', function() {
+        var url = document.getElementById('PieChart').toDataURL('image/png');
+        var link = document.createElement('a');
+        link.download = 'chart.png';
+        link.href = url;
+        link.click();
+    });
+</script>
+
+{%endif%}
+</body>
+</html>

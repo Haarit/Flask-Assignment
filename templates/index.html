@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <h1>Welcome to HRC's Database</h1>
+    <div class="container">
+        <div class="card" tabindex="0" onclick="location.href='/purchase_details'">
+            <div class="card-body">
+                <h4 class="card-title">Purchase Details Q2_1</h4>
+                <p class="card-text">Search data on the basis of Purchase Details</p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/redemption_details'">
+            <div class="card-body">
+                <h4 class="card-title">Redemption Details Q2_1</h4>
+                <p class="card-text">Search data on the basis of Redemption Details</p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/Q2_2'">
+            <div class="card-body">
+                <h4 class="card-title">Question 2_2</h4>
+                <p class="card-text">
+                    The option to select a Company/Individual from a drop-down/search, and
+                    show how many bonds and the total value of bonds purchased per year.
+                    You can present a bar plot depicting your results.
+                </p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/Q2_3'">
+            <div class="card-body">
+                <h4 class="card-title">Question 2_3</h4>
+                <p class="card-text">
+                    The option to select a political party from a drop-down/search, and show
+                    how many bonds and total value per year are in the timeline. You can
+                    present a bar plot depicting your results.
+                </p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/Q2_4'">
+            <div class="card-body">
+                <h4 class="card-title">Question 2_4</h4>
+                <p class="card-text">
+                    Theoption to select a political party from a drop-down/search, shows
+                    which companies have donated to it and what amount individually and
+                    combined.
+                </p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/Q2_5'">
+            <div class="card-body">
+                <h4 class="card-title">Question 2_5</h4>
+                <p class="card-text">
+                    Similarly, provide an option to select a company from a
+                    drop-down/search, showcasing which parties they have donated and what
+                    amount individually and combined.
+                </p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/Q2_6'">
+            <div class="card-body">
+                <h4 class="card-title">Question 2_6</h4>
+                <p class="card-text">
+                    Apart from 1e4 and 1e5, you can also display the Pie chart depicting the
+                    total amount of donations to all the parties.
+                </p>
+            </div>
+        </div>
+        <div class="card" tabindex="0" onclick="location.href='/exploring1'">
+            <div class="card-body">
+                <h4 class="card-title">Exploring</h4>
+                <p class="card-text">Exploring more types of graphs using ChartJS.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
