@@ -35,3 +35,9 @@ Roll no: 23110077
 - SQL, Flask, Jinja, Javascript, HTML5 and CSS are used to make this website.
 ### Library Requirements
 - flask, flask_mysqldb, fitz, csv, pandas and sqlalchemy.
+
+
+
+# Images of Website
+## Homepage
+Website Images/Home_Page.png
