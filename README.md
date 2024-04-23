@@ -44,16 +44,33 @@ Roll no: 23110077
 
 ## Q1
 ![ALT TEXT](./Website_Images/Q1/1.png)
+![ALT TEXT](./Website_Images/Q1/2.png)
+![ALT TEXT](./Website_Images/Q1/3.png)
+![ALT TEXT](./Website_Images/Q1/4.png)
+![ALT TEXT](./Website_Images/Q1/5.png)
+![ALT TEXT](./Website_Images/Q1/6.png)
 
 
 ## Q2
+![ALT TEXT](./Website_Images/Q2/1.png)
+![ALT TEXT](./Website_Images/Q2/2.png)
 
 ## Q3
+![ALT TEXT](./Website_Images/Q3/1.png)
+![ALT TEXT](./Website_Images/Q3/2.png)
 
 ## Q4
+![ALT TEXT](./Website_Images/Q4/1.png)
+![ALT TEXT](./Website_Images/Q4/3.png)
+![ALT TEXT](./Website_Images/Q4/3.png)
 
 ## Q5
+![ALT TEXT](./Website_Images/Q5/1.png)
+![ALT TEXT](./Website_Images/Q5/2.png)
 
 ## Q6
+![ALT TEXT](./Website_Images/Q6/1.png)
 
 ## Exploring
+![ALT TEXT](./Website_Images/Exploring/1.png)
+![ALT TEXT](./Website_Images/Exploring/2.png)
